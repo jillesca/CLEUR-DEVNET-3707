@@ -22,9 +22,9 @@ The components used by this demo are:
 
 For this demo [one alarm was created.](grafana/alerts.yaml)
 
-When the average number of ISIS neighbors in a lapse of 30 second **is less than** the average number of ISIS neighbors in a lapse of 30 minutes, the alarm will trigger a webhook for the LLM.
+When the average number of ISIS neighbors in a lapse of 30 second _**is less than**_ the average number of ISIS neighbors in a lapse of 30 minutes, the alarm will trigger a webhook for the LLM.
 
-This allows to work with `N` number of ISIS neighbors.
+This signal that a stable ISIS neighbor that was working on the last 30 minutes was lost, and allows to work with `N` number of ISIS neighbors.
 
 ## Prepare Demo
 
@@ -75,7 +75,7 @@ Langchain is highly recommended if you want to have visibility at the LLM operat
 
 ### Start the LLM
 
-The [llm_agent dirctory](llm_agent/) provides all the code used to run the LLM.
+The [llm_agent directory](llm_agent/) provides all the code used to run the LLM.
 
 On the demo, the LLM ran using a python virtual environment. Make sure to install the [requirementes listed.](llm_agent/requirements.txt)
 
@@ -89,14 +89,14 @@ _**NOTE:** In the upcoming weeks, a container will be added for the LLM_
 
 The demo presented consisted on shutting down one interface, make ISIS fail, and let the LLM figure it out what happened and how to fix it.
 
-In the images below, GigabitEthernet5 was shutting down on `cat8000-v0` resulting in losing its ISIS adjacency with `cat8000-v2`
+In the images below, `GigabitEthernet5` was shutting down on `cat8000-v0` resulting in losing its ISIS adjacency with `cat8000-v2`
 
 On grafana you can observe the ISIS counting going down and triggering the alarm.
 
 ![grafana alarm](img/grafana1.png)
 ![grafana alarm 2](img/grafana2.png)
 
-Next the LLM will receive the grafana webhook, will start looking at what the issue is and how to resolve it.
+Next, you will receive a webex notification from grafana and the LLM will receive the webhook. The webhook triggers the LLM to start looking at what the issue is and how to resolve it.
 
 ![llm thinking 1](img/webex_bot1.png)
 ![llm thinking 2](img/webex_bot2.png)
@@ -111,3 +111,5 @@ Next the LLM will receive the grafana webhook, will start looking at what the is
 - Repeated alarms are suppresed by Grafana, this is controlled by [the grafana policy file,](grafana/config/policies.yaml)
   - If you are testing continously, run `./build_run_grafana.sh` to destroy and create the container.
   - Not an ideal scenario, but wasn't able to find a proper solution on the time given.
+- From time to time, the answers from the LLM are lost and not sent to webex. You can find them on the terminal output.
+- This is the second iteration of this exercise. The first one was [presented at Cisco Impact 2023](https://github.com/jillesca/open_telemetry_network_impact)
