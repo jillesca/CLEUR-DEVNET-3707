@@ -22,7 +22,7 @@ The components used by this demo are:
 
 For this demo [one alarm was created.](grafana/alerts.yaml)
 
-When the average of number of ISIS neighbors in 30 second is less than the average of ISIS neighbors in 30 minutes, the alarm will trigger a webhook for the LLM
+When the average number of ISIS neighbors in a lapse of 30 second **is less than** the average number of ISIS neighbors in a lapse of 30 minutes, the alarm will trigger a webhook for the LLM.
 
 This allows to work with `N` number of ISIS neighbors.
 
