@@ -54,7 +54,7 @@ If you prefer to use another client, you need to:
 
 To get your webex token go to <https://developer.webex.com/docs/bots> and create a bot.
 
-To get the `WEBEX_ROOM_ID` the easiest way is to open a room with your bot in webex. Once you have your room, you can get the `WEBEX_ROOM_ID` by using [API list room](https://developer.webex.com/docs/api/v1/rooms/list-rooms) use your token created before.
+To get the `WEBEX_ROOM_ID` the easiest way is to open a room with your bot in the webex app. Once you have your room, you can get the `WEBEX_ROOM_ID` by using [API list room](https://developer.webex.com/docs/api/v1/rooms/list-rooms) use your token created before.
 
 #### Optional Variables
 
