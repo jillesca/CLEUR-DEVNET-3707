@@ -98,7 +98,7 @@ To start the TIG stack do.
 ./build_run_grafana.sh
 ```
 
-### Verifying Telemetry on Telegraf, Influxdb, Grafana
+### 🚦 Verifying Telemetry on Telegraf, Influxdb, Grafana
 
 - telegraf
   - Run `docker exec -it telegraf bash` and then [tail -F /tmp/telegraf-grpc.log](telegraf/dockerfile#L30) to see Telegraf logs.
@@ -108,7 +108,7 @@ To start the TIG stack do.
   - Access <http://localhost:3000/dashboards> with the credentials admin/admin
   - Navigrate to `General > Network Telemetry` to see the grafana dashboard.
 
-### Starting the LLM
+### 🏁 Starting the LLM
 
 The [llm_agent directory](llm_agent/) provides all the code used to run the LLM.
 
@@ -118,7 +118,7 @@ The entry point for the application is the [app file](llm_agent/app.py)
 
 > _**NOTE:** In the upcoming weeks, a container will be added for the LLM_
 
-## Running the Demo
+## 🎮 Running the Demo
 
 ![network topology](/img/cml.png)
 
