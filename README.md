@@ -1,4 +1,4 @@
-# 🎬 CLEUR DevNet-3707 2024
+# 🦾 CLEUR DevNet-3707 2024
 
 🎥 Slides and recording [are available here](https://www.ciscolive.com/on-demand/on-demand-library.html?#/session/1707505627331001pilj)
 
@@ -20,7 +20,7 @@ The components used by this demo are:
 - OpenAI LLM. 🧠
   - `gpt-4-turbo-preview` was used. 🚀
 
-## 📸 Demo
+## 🎬 Demo
 
 For this demo [one alarm was created.](grafana/alerts.yaml)
 
