@@ -42,7 +42,7 @@ WEBEX_USERNAME=<YOUR_WEBEX_USERNAME>
 WEBEX_ROOM_ID=<THE_WEBEX_ROOM_ID>
 ```
 
-> _**NOTE:**_ The webex varibles are only needed if you interact with the LLM using webex.
+> _**NOTE:**_ The webex variables are only needed if you interact with the LLM using webex.
 
 If you prefer to use another client, you need to:
 
