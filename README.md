@@ -20,7 +20,7 @@ The components used by this demo are:
 - OpenAI LLM. 🧠
   - `gpt-4-turbo-preview` was used. 🚀
 
-## Demo 🎬
+## 🎬 Demo
 
 For this demo [one alarm was created.](grafana/alerts.yaml)
 
