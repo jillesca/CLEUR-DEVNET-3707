@@ -30,33 +30,45 @@ This signal that a stable ISIS neighbor that was working on the last 30 minutes 
 
 ### Environment variables
 
-For the demo to work, you **must** set the next environment variables.
+#### Mandatory variables
+
+For the demo to work, you **must** set the next environment variables. You can either `export` the environment variables or create a `.env` file with them. See [.env.local](.env.local) for an example.
 
 ```bash
-OPENAI_API_KEY
-WEBEX_TEAMS_ACCESS_TOKEN
-WEBEX_APPROVED_USERS_MAIL
-WEBEX_USERNAME
-WEBEX_ROOM_ID
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
+WEBEX_TEAMS_ACCESS_TOKEN=<YOUR_TEAM_ACCESS_TOKEN>
+WEBEX_APPROVED_USERS_MAIL=<MAILS_OF_USERS_APPROVED_SEPARATED_BY_COMMAS>
+WEBEX_USERNAME=<YOUR_WEBEX_USERNAME>
+WEBEX_ROOM_ID=<THE_WEBEX_ROOM_ID>
 ```
 
-The webex API is only needed if you want to interact with webex as the demo is built. If you prefer to use another client, you need to adapt the code.
+_**NOTE:**_ The webex varibles are only needed if you interact with the LLM using webex.
 
-To work with a bot on webex and get your API keys, go to <https://developer.webex.com/docs/bots>
+If you prefer to use another client, you need to:
 
-Optional environment variables:
+- Modify the [notify function](llm_agent/app.py#L59) to accomodate your client.
+- Remove/comment [the start of the webex bot](llm_agent/app.py#L73)
+- Communicate with the LLM using REST API. See [send_message_to_chat_api for an example](llm_agent/webex_chat/chat_api_client.py#L13)
 
-```bash
-GRAFANA_WEB_HOOK
-LANGCHAIN_PROJECT
-LANGCHAIN_API_KEY
-LANGCHAIN_TRACING_V2=true
-LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
-```
+##### Webex considerations
+
+To get your webex token go to <https://developer.webex.com/docs/bots> and create a bot.
+
+To get the `WEBEX_ROOM_ID` the easiest way is to create a room in webex by opening a room with your bot in webex. Once you have your room, you can get the `WEBEX_ROOM_ID` by using [API list room](https://developer.webex.com/docs/api/v1/rooms/list-rooms) use your token created before.
+
+#### Optional Variables
 
 For testing, you can use the `GRAFANA_WEB_HOOK` env var to send webhooks to other site, such as <https://webhook.site/>
 
-Langchain is highly recommended if you want to have visibility at the LLM operations.
+If you have access to smith.langchain.com (recommended for view LLM operations) add your project ID and API key.
+
+```bash
+GRAFANA_WEB_HOOK=<WEB_HOOK_URL>
+LANGCHAIN_PROJECT=<YOUR_LANGCHAIN_PROJECT_ID>
+LANGCHAIN_API_KEY=<YOUR_LANGCHAIN_API_KEY>
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
+```
 
 ### TIG Stack
 
