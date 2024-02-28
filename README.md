@@ -70,11 +70,17 @@ LANGCHAIN_TRACING_V2=true
 LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 ```
 
+#### .env.local file
+
+The [.env.local file](.env.local) is used to define all variables used by the containers.
+
+On a real implementation you will keep this file out of git using the `.gitignore` file.
+
 ### Start the topology
 
 For the demo I used a CML instance in the [Cisco DevNet sandbox.](https://developer.cisco.com/site/sandbox/) You can use a dedicated CML instance or a NSO sandbox.
 
-Once you have your sandbox, stop the default sandbox and wiped it out.
+Once you have your sandbox, stop the default topology and wiped it out.
 
 Then, import the [topology file](cml/topology.yaml) used for this demo and start the lab.
 
@@ -82,7 +88,7 @@ Then, import the [topology file](cml/topology.yaml) used for this demo and start
 
 The requirements for the TIG stack are docker and IP reachability to the CML instance. For the demo I used my laptop.
 
-To start the TIG do.
+To start the TIG stack do.
 
 ```bash
 ./build_run_telegraf.sh
@@ -105,7 +111,7 @@ On the demo, the LLM ran using a python virtual environment. Make sure to instal
 
 The entry point for the application is the [app file](llm_agent/app.py)
 
-_**NOTE:** In the upcoming weeks, a container will be added for the LLM_
+> _**NOTE:** In the upcoming weeks, a container will be added for the LLM_
 
 ## Test the Demo
 
@@ -137,3 +143,15 @@ Next, you will receive a webex notification from grafana and the LLM will receiv
   - Not an ideal scenario, but wasn't able to find a proper solution on the time given.
 - From time to time, the answers from the LLM are lost and not sent to webex. You can find them on the terminal output.
 - This is the second iteration of this exercise. The first one was [presented at Cisco Impact 2023](https://github.com/jillesca/open_telemetry_network_impact)
+
+## Troubleshooting
+
+Sometimes the CML lab is not reachable from your laptop. When this happens usually is a connectivity issue between the devices and the bridge of CML.
+
+- One way to fix this issue is to flap several times the management interface (G1) of the devices.
+- Ping from the devices to their Gateway (10.10.20.255)
+- Go to the DevBox 10.10.20.50 developer/C1sco12345 and ping the managment interface of the devices
+
+Usually after around 5 minutes the connectivity starts to work.
+
+In more drastic cases, restart the cat8kv from the CML GUI.
