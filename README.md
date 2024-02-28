@@ -98,9 +98,12 @@ To start the TIG stack do.
 
 #### Verify telemetry on Telegraf, Influxdb, Grafana
 
-- telegraf - `docker exec -it telegraf bash` > [tail -F /tmp/telegraf-grpc.log](telegraf/dockerfile#L30)
-- Influxdb - <http://localhost:8086> admin/admin123
-- Grafana - <http://localhost:3000/dashboards> admin/admin
+- telegraf
+  - `docker exec -it telegraf bash` > [tail -F /tmp/telegraf-grpc.log](telegraf/dockerfile#L30)
+- Influxdb
+  - <http://localhost:8086> admin/admin123
+- Grafana
+  - <http://localhost:3000/dashboards> admin/admin
   - General > Network Telemetry
 
 ### Start the LLM
