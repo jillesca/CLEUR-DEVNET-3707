@@ -42,19 +42,19 @@ WEBEX_USERNAME=<YOUR_WEBEX_USERNAME>
 WEBEX_ROOM_ID=<THE_WEBEX_ROOM_ID>
 ```
 
-_**NOTE:**_ The webex varibles are only needed if you interact with the LLM using webex.
+> _**NOTE:**_ The webex varibles are only needed if you interact with the LLM using webex.
 
 If you prefer to use another client, you need to:
 
 - Modify the [notify function](llm_agent/app.py#L59) to accomodate your client.
 - Remove/comment [the start of the webex bot](llm_agent/app.py#L73)
-- Communicate with the LLM using REST API. See [send_message_to_chat_api for an example](llm_agent/webex_chat/chat_api_client.py#L13)
+- Communicate with the LLM using REST API. See [send_message_to_chat_api](llm_agent/webex_chat/chat_api_client.py#L13) for an example.
 
 ##### Webex considerations
 
 To get your webex token go to <https://developer.webex.com/docs/bots> and create a bot.
 
-To get the `WEBEX_ROOM_ID` the easiest way is to create a room in webex by opening a room with your bot in webex. Once you have your room, you can get the `WEBEX_ROOM_ID` by using [API list room](https://developer.webex.com/docs/api/v1/rooms/list-rooms) use your token created before.
+To get the `WEBEX_ROOM_ID` the easiest way is to open a room with your bot in webex. Once you have your room, you can get the `WEBEX_ROOM_ID` by using [API list room](https://developer.webex.com/docs/api/v1/rooms/list-rooms) use your token created before.
 
 #### Optional Variables
 
