@@ -2,6 +2,8 @@
 
 🎥 Slides and recording [are available here](https://www.ciscolive.com/on-demand/on-demand-library.html?#/session/1707505627331001pilj)
 
+🎥🎞️🔈 **Slides and Recording** - Access the full content [**here**](https://www.ciscolive.com/on-demand/on-demand-library.html?#/session/1707505627331001pilj) 🚀
+
 This demo is built to showcase how you AI might assist you in troubleshooting network issues.
 
 The components used by this demo are:
