@@ -1,5 +1,7 @@
 # CLEUR DevNet-3707 2024
 
+🎥 Slides and recording [are available here](https://www.ciscolive.com/on-demand/on-demand-library.html?#/session/1707505627331001pilj)
+
 This demo is built to showcase how you AI might assist you in troubleshooting network issues.
 
 The components used by this demo are:
@@ -7,18 +9,18 @@ The components used by this demo are:
 - Virtual IOS-XE devices running ISIS.
   - The [CML Devnet sandbox](https://developer.cisco.com/site/sandbox/) was used to build the lab.
 - [ncpeek.](https://github.com/jillesca/ncpeek) A python netconf client used for telegraf.
-- TIG stack with docker 20.10+
+- TIG stack with docker 20.10+ 🐳
   - Telegraf grabs telmetry data from network devices.
-  - Grafana kicks a webhook when an alarm is detected.
+  - Grafana kicks a webhook when an alarm is detected. 🚨
 - FastAPI.
   - Host the LLM.
   - Interacts with network devices & frontend.
-- PyATS. Provides a framework to interact with network devices.
-- [Webex_bot](https://github.com/fbradyirl/webex_bot) use to interact with the LLM.
-- OpenAI LLM.
-  - `gpt-4-turbo-preview` was used.
+- PyATS. Provides a framework to interact with network devices. 🛠️
+- [Webex_bot](https://github.com/fbradyirl/webex_bot) use to interact with the LLM. 🤖
+- OpenAI LLM. 🧠
+  - `gpt-4-turbo-preview` was used. 🚀
 
-## Demo
+## Demo 🎬
 
 For this demo [one alarm was created.](grafana/alerts.yaml)
 
@@ -26,11 +28,11 @@ When the average number of ISIS neighbors in a lapse of 30 second _**is less tha
 
 This signal that a stable ISIS neighbor that was working on the last 30 minutes was lost, and allows to work with `N` number of ISIS neighbors.
 
-## Prepare Demo
+## 🛠️ Prepare Demo
 
-### Environment variables
+### 🔑 Environment variables
 
-#### Mandatory variables
+#### 📌 Mandatory variables
 
 For the demo to work, you **must** set the next environment variables. You can either `export` the environment variables or create a `.env` file with them. See [.env.local](.env.local) for an example.
 
@@ -48,15 +50,15 @@ If you prefer to use another client, you need to:
 
 - Modify the [notify function](llm_agent/app.py#L59) to accomodate your client.
 - Remove/comment [the start of the webex bot](llm_agent/app.py#L73)
-- Communicate with the LLM using REST API. See [send_message_to_chat_api](llm_agent/webex_chat/chat_api_client.py#L13) for an example.
+- Communicate with the LLM using REST API. See [send_message_to_chat_api](llm_agent/webex_chat/chat_api_client.py#L13) for an example. 📡
 
-##### Webex considerations
+##### 📝 Webex considerations
 
 To get your webex token go to <https://developer.webex.com/docs/bots> and create a bot.
 
 To get the `WEBEX_ROOM_ID` the easiest way is to open a room with your bot in the webex app. Once you have your room, you can get the `WEBEX_ROOM_ID` by using [API list room,](https://developer.webex.com/docs/api/v1/rooms/list-rooms) use your token created before.
 
-#### Optional Variables
+#### 📌 Optional Variables
 
 For testing, you can use the `GRAFANA_WEB_HOOK` env var to send webhooks to other site, such as <https://webhook.site/>
 
@@ -76,15 +78,15 @@ The [.env.local file](.env.local) is used to define all variables used by the co
 
 In a production environment, this file should be kept out of version control using the `.gitignore` file.
 
-### Start the topology
+### 🚀 Start the topology
 
-This demo uses a CML instance from the [Cisco DevNet sandbox](https://developer.cisco.com/site/sandbox/). You can also use a dedicated CML instance or a NSO sandbox.
+This demo uses a CML instance from the [Cisco DevNet sandbox](https://developer.cisco.com/site/sandbox/). You can also use a dedicated CML instance or a NSO sandbox. 🏖️
 
-After acquiring your sandbox, stop the default topology and wipe it out.
+After acquiring your sandbox, stop the default topology and wipe it out. 🧹
 
 Then, import the [topology file](cml/topology.yaml) used for this demo and start the lab.
 
-### TIG Stack
+### 📦 TIG Stack
 
 The TIG stack requires Docker and IP reachability to the CML instance. For this demo, I used my laptop.
 
@@ -138,7 +140,7 @@ Next, you will receive a webex notification from grafana and the LLM will receiv
 ![llm thinking 5](img/webex_bot5.png)
 ![llm thinking 6](img/webex_bot6.png)
 
-## Notes
+## 📝 Notes
 
 - You can easily run out of OpenAI tokens in your replies from netconf, so is important to filter data to what AI could need.
 - Repeated alarms are suppresed by Grafana, this is controlled by [the grafana policy file,](grafana/config/policies.yaml)
@@ -147,7 +149,7 @@ Next, you will receive a webex notification from grafana and the LLM will receiv
 - From time to time, the answers from the LLM are lost and not sent to webex. You can find them on the terminal output.
 - This is the second iteration of this exercise. The first one was [presented at Cisco Impact 2023](https://github.com/jillesca/open_telemetry_network_impact)
 
-## Troubleshooting
+## 📚 Troubleshooting
 
 If the CML lab is not reachable from your laptop, it's usually due to a connectivity issue between the devices and the CML bridge. Here are some steps to resolve this:
 
