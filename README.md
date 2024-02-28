@@ -1,5 +1,7 @@
 # 🦾 CLEUR DevNet-3707 2024
 
+![Docker Version](https://img.shields.io/badge/Docker-20.10+-blue)
+
 🎞️ **Slides and Recording** 🎥 - Access the content [**here**](https://www.ciscolive.com/on-demand/on-demand-library.html?#/session/1707505627331001pilj) 🚀
 
 This demo is built to showcase how you AI might assist you in troubleshooting network issues.
