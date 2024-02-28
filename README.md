@@ -54,7 +54,7 @@ If you prefer to use another client, you need to:
 
 To get your webex token go to <https://developer.webex.com/docs/bots> and create a bot.
 
-To get the `WEBEX_ROOM_ID` the easiest way is to open a room with your bot in the webex app. Once you have your room, you can get the `WEBEX_ROOM_ID` by using [API list room](https://developer.webex.com/docs/api/v1/rooms/list-rooms) use your token created before.
+To get the `WEBEX_ROOM_ID` the easiest way is to open a room with your bot in the webex app. Once you have your room, you can get the `WEBEX_ROOM_ID` by using [API list room,](https://developer.webex.com/docs/api/v1/rooms/list-rooms) use your token created before.
 
 #### Optional Variables
 
@@ -70,13 +70,25 @@ LANGCHAIN_TRACING_V2=true
 LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 ```
 
+### Start the topology
+
+For the demo I used a CML instance in the [Cisco DevNet sandbox.](https://developer.cisco.com/site/sandbox/) You can use a dedicated CML instance or a NSO sandbox.
+
+Once you have your sandbox, stop the default sandbox and wiped it out.
+
+Then, import the [topology file](cml/topology.yaml) used for this demo and start the lab.
+
 ### TIG Stack
 
-- Import the [topology file to CML](cml/topology.yaml) and start the network.
-- Start the TIG start
-  - `./build_run_telegraf.sh`
-  - `./build_run_influxdb.sh`
-  - `./build_run_grafana.sh`
+The requirements for the TIG stack are docker and IP reachability to the CML instance. For the demo I used my laptop.
+
+To start the TIG do.
+
+```bash
+./build_run_telegraf.sh
+./build_run_influxdb.sh
+./build_run_grafana.sh
+```
 
 #### Verify telemetry on Telegraf, Influxdb, Grafana
 
