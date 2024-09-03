@@ -2,6 +2,9 @@
 
 ![Docker Version](https://img.shields.io/badge/Docker-20.10+-blue)
 
+> [!IMPORTANT]
+> See [AI-Network-Troubleshooting-PoC](https://github.com/jillesca/AI-Network-Troubleshooting-PoC) which is a newer and better version of this demo. No further updates will be done to this repository.
+
 🎞️ **Slides and Recording** 🎥 - [**here**](https://www.ciscolive.com/on-demand/on-demand-library.html?#/session/1707505627331001pilj) 🚀
 
 This demo is built to showcase how you AI might assist you in troubleshooting network issues.
